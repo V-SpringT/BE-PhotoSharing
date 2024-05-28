@@ -7,7 +7,7 @@ module.exports.hasSessionRecord = async (request, response, next)=>{
         }
         else{
             console.log(request.cookies.user_id)
-            response.clearCookie('user_id');
+            // response.clearCookie('user_id');
             response.status(400).send('Người dùng chưa đăng nhập');
         }
     }
