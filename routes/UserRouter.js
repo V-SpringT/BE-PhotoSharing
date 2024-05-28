@@ -21,11 +21,7 @@ router.post(
         }
         console.log("passss")
         const userObj = JSON.parse(JSON.stringify(user));    
-        response.cookie("user_id", userObj._id,{
-          httpOnly: true,
-          secure: true,
-          sameSite: 'None',
-        });
+        response.cookie("user_id", userObj._id);
         console.log(request.cookies.user_id);          
         response.status(200).json(
           { 

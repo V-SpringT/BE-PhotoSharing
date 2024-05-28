@@ -17,18 +17,13 @@ app.use(
     secret: "keyboard cat",
     resave: false,
     saveUninitialized: false,
-    cookie: { 
-      maxAge: 60 * 30, // In secs, Optional
+    cookie: {
+      httpOnly: true,
+      secure: true,
+      sameSite: 'None'
     },
   })
 );
-// app.use(
-//   session({
-//     secret: "secretKey",
-//     resave: false,
-//     saveUninitialized: false,
-//   })
-// );
 app.use(cors({
   origin: true,
   credentials: true
