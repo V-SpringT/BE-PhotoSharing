@@ -22,7 +22,6 @@ router.post(
         console.log("passss")
         const userObj = JSON.parse(JSON.stringify(user));    
         response.cookie("user_id", userObj._id,{
-          httpOnly: true,
           secure: true,
           sameSite: 'None'
         });
@@ -55,7 +54,10 @@ router.post(
       await newUser.save();
       console.log(`** Server: User logined: ${newUser.username}`);
       const userObj = JSON.parse(JSON.stringify(newUser));        
-      response.cookie("user_id", userObj._id);
+      response.cookie("user_id", userObj._id,{
+        secure: true,
+        sameSite: 'None'
+      });
       response.status(200).json(
         { 
           first_name: userObj.first_name, 
